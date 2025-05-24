@@ -1,0 +1,51 @@
+{
+  "common": {
+    "home": "Home",
+    "legalRights": "Legal Rights",
+    "emergencyNumbers": "Emergency Numbers",
+    "accommodation": "Accommodation",
+    "language": "Language",
+    "countries": "Countries",
+    "preDepInfo": "Pre-Departure Info",
+    "emergencyHelp": "Emergency Help",
+    "skillsLearning": "Skills Learning",
+    "about": "About",
+    "privacySafety": "Privacy & Safety",
+    "partners": "Partners"
+  },
+  "homePage": {
+    "title": "Working in Qatar – A Guide for Nepali Migrant Workers",
+    "subtitle": "Know your rights, stay safe, and access help when you need it.",
+    "legalRights": "Legal Rights",
+    "emergencyNumbers": "Emergency Numbers",
+    "accommodation": "Accommodation",
+    "jobContractTips": "Job Contract Tips",
+    "preDepartureInfo": "Pre-Departure Info",
+    "healthcareInsurance": "Healthcare and Insurance",
+    "yourLegalRights": "Your Legal Rights in Qatar",
+    "workContractIntro": "Learn more about your work contract...",
+    "emergencyHelp": "Emergency Help",
+    "clickToLearnMore": "Click here to learn more",
+    "watchVideo": "Watch this short video in Nepali"
+  },
+  "healthcareInsurance": {
+    "pageTitle": "Healthcare and Insurance in Qatar",
+    "mandatoryInsurance": "Mandatory Health Insurance",
+    "mandatoryInsuranceDesc": "In Qatar, your employer is legally required to provide you with health insurance. This insurance should cover basic medical services, ensuring you have access to healthcare when you need it.",
+    "coverageTitle": "What Your Insurance Covers",
+    "coverageDesc": "Typically, your health insurance will cover doctor visits, hospital stays, and emergency treatment. It may also cover some medications. However, it might not cover everything, so it's important to understand the details of your policy.",
+    "accessTitle": "How to Access Healthcare",
+    "findDoctor": "Find a Doctor",
+    "findDoctorDesc": "Ask your employer or insurance provider for a list of doctors and clinics covered by your insurance.",
+    "emergency": "In an Emergency",
+    "emergencyDesc": "Go to the nearest hospital emergency room.",
+    "carryCard": "Carry Your Card",
+    "carryCardDesc": "Always carry your health insurance card and your Qatar ID.",
+    "publicPrivate": "Public vs. Private Healthcare",
+    "publicPrivateDesc": "Qatar has both public (government-run) and private healthcare facilities. Public facilities may require a health card.",
+    "mentalHealth": "Mental Health Services",
+    "mentalHealthDesc": "Include information about mental health support services here",
+    "importantContacts": "Important Contacts",
+    "contactsDesc": "List contact information for relevant healthcare authorities"
+  }
+}
