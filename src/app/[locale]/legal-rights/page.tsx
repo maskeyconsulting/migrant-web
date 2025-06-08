@@ -33,13 +33,13 @@ async function getLegalRightsContent(locale: string) {
     const source = await fs.readFile(contentPath, "utf8");
     return source;
   } catch (error) {
-    console.error("Failed to read MDX file:", error);
+    console.error(`Failed to read MDX file: ${contentPath}`, error);
     return null;
   }
 }
 
 export default async function Page({ params }: { params: { locale: string } }) {
-  const currentLocale = params.locale || "en"; // Use params.locale
+  const currentLocale = (await params.locale) || "en"; // Use params.locale
 
   const mdxSource = await getLegalRightsContent(currentLocale);
 
