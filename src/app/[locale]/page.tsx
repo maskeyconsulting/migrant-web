@@ -11,6 +11,13 @@ import VideoModal from "@/component/VideoModal";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { GoLaw } from "react-icons/go";
+import { MdOutlinePermPhoneMsg } from "react-icons/md";
+import { MdHotel } from "react-icons/md";
+import { GrUserWorker } from "react-icons/gr";
+import { FaPlane } from "react-icons/fa";
+import { TbHospitalCircleFilled } from "react-icons/tb";
+import { MdSchool } from "react-icons/md";
 
 export default function Home() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -74,31 +81,43 @@ export default function Home() {
           icon="/icons/legal-document.svg"
           title="legalRights"
           href={`/${locale}/legal-rights`}
+          IconComponent= {GoLaw}
         />
         <InfoCard
           icon="/icons/emergency-phone.svg"
           title="emergencyNumbers"
           href={`/${locale}/emergency-numbers`}
+          IconComponent= {MdOutlinePermPhoneMsg}
         />
         <InfoCard
           icon="/icons/accommodation.svg"
           title="accommodation"
           href={`/${locale}/accommodation`}
+          IconComponent= {MdHotel}
         />
         <InfoCard
           icon="/icons/hard-hat.png"
           title="jobContractTips"
           href={`/${locale}/job-contract`}
+          IconComponent={GrUserWorker}
         />
         <InfoCard
           icon="/icons/departure.svg"
           title="preDepartureInfo"
           href={`/${locale}/pre-departure`}
+          IconComponent={FaPlane}
         />
         <InfoCard
           icon="/icons/healthcare.svg"
           title="healthcareInsurance"
           href={`/${locale}/healthcare-insurance`}
+          IconComponent={TbHospitalCircleFilled}
+        />
+        <InfoCard
+          icon="/icons/skillslearning.svg"
+          title="skillsLearning"
+          href={`/${locale}/skills-learning`}
+          IconComponent={MdSchool}
         />
       </div>
 

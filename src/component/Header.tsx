@@ -1,5 +1,6 @@
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
+import { FcGlobe } from "react-icons/fc";
 
 const Header = () => {
   const t = useTranslations("common");
@@ -14,25 +15,8 @@ const Header = () => {
           </Link>
           <div className="flex items-center space-x-6">
             <Link href={`/${locale}/countries`} className="hover:text-gray-600">
+              <FcGlobe className="inline-block mr-2" />
               {t("countries")}
-            </Link>
-            <Link
-              href={`/${locale}/pre-departure`}
-              className="hover:text-gray-600"
-            >
-              {t("preDepInfo")}
-            </Link>
-            <Link
-              href={`/${locale}/emergency-help`}
-              className="hover:text-gray-600"
-            >
-              {t("emergencyHelp")}
-            </Link>
-            <Link
-              href={`/${locale}/skills-learning`}
-              className="hover:text-gray-600"
-            >
-              {t("skillsLearning")}
             </Link>
           </div>
         </nav>
