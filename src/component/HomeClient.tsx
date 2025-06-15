@@ -103,6 +103,19 @@ export default function HomeClient({ locale }: { locale: string }) {
           title="skillsLearning"
           href={`/${locale}/skills-learning`}
           IconComponent={MdSchool}
+        />{" "}
+        <br />
+        <InfoCard
+          icon="/icons/skillslearning.svg"
+          title="questionnaireForMigrants"
+          href={`https://forms.gle/zC1vuJCrY7hRAMXg8`}
+          IconComponent={MdSchool}
+        />
+        <InfoCard
+          icon="/icons/skillslearning.svg"
+          title="questionnaireForMigrantExperts"
+          href={`https://forms.gle/Ma76utXHfsbDkDKC9`}
+          IconComponent={MdSchool}
         />
       </div>
 

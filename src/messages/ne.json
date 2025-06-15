@@ -40,7 +40,9 @@
     "emergencyHelp": "आपतकालीन सहायता",
     "clickToLearnMore": "थप जान्न यहाँ क्लिक गर्नुहोस्",
     "watchVideo": "यो छोटो भिडियो नेपालीमा हेर्नुहोस्",
-    "skillsLearning": "सीप सिकाइ"
+    "skillsLearning": "सीप सिकाइ",
+    "questionnaireForMigrants": "आप्रवासीहरूको लागि प्रश्नावली",
+    "questionnaireForMigrantExperts": "विशेषज्ञहरूको लागि प्रश्नावली"
   },
   "healthcareInsurance": {
     "pageTitle": "कतारमा स्वास्थ्य सेवा र बीमा",
