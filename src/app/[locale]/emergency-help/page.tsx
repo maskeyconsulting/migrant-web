@@ -38,6 +38,13 @@ async function getEmergencyHelpContent(locale: string) {
   }
 }
 
+export function generateStaticParams() {
+  return [
+    { locale: "en" },
+    { locale: "ne" },
+  ];
+}
+
 export default async function Page() {
   const currentLocale = "en"; // Replace with your locale logic
 

@@ -1,19 +1,17 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { compileMDX } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import SectionContainer from "@/component/SectionContainer";
 import Link from "next/link";
-import HealthcareMap from "@/component/HealthcareMap";
-import { useTranslations } from "next-intl";
+import MapWrapper from "@/component/MapWrapper";
 
 type Components = MDXRemoteProps["components"];
 
 const components: Components = {
   SectionContainer,
   Link,
-  HealthcareMap,
+  HealthcareMap: MapWrapper,
   h1: (props) => (
     <h1 {...props} className="font-heading text-4xl font-bold mb-4" />
   ),
@@ -40,16 +38,9 @@ async function getHealthcareInsuranceContent(locale: string) {
     return null;
   }
 }
-
-interface PageProps {
-  params: {
-    locale: string;
-  };
-}
-
-export default async function Page(props: PageProps) {
+export default async function Page({ params }: { params: Promise < { locale: string } > }) {
   // Get the locale from props without destructuring
-  const locale = props.params?.locale ?? "en";
+  const locale = (await params).locale ?? "en";
   const mdxSource = await getHealthcareInsuranceContent(locale);
 
   if (!mdxSource) {
@@ -66,4 +57,11 @@ export default async function Page(props: PageProps) {
     console.error("Error compiling MDX:", error);
     return <div>Error compiling content.</div>;
   }
+}
+
+export function generateStaticParams() {
+  return [
+    { locale: "en" },
+    { locale: "ne" },
+  ];
 }

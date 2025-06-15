@@ -39,7 +39,7 @@ async function getLegalRightsContent(locale: string) {
 }
 
 export default async function Page({ params }: { params: { locale: string } }) {
-  const currentLocale = (await params.locale) || "en"; // Use params.locale
+  const currentLocale = (await params).locale || "en"; // Use params.locale
 
   const mdxSource = await getLegalRightsContent(currentLocale);
 
@@ -64,4 +64,11 @@ export default async function Page({ params }: { params: { locale: string } }) {
       {content}
     </article>
   );
+}
+
+export function generateStaticParams() {
+  return [
+    { locale: 'en' },
+    { locale: 'ne' }
+  ];
 }

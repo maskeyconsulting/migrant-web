@@ -27,12 +27,10 @@ async function getPreDepartureContent(locale: string) {
   }
 }
 
-export default async function Page({
-  params: { locale },
-}: {
-  params: { locale: string };
+export default async function Page({params }: {
+  params: Promise <{ locale: string }>;
 }) {
-  const mdxSource = await getPreDepartureContent(locale);
+  const mdxSource = await getPreDepartureContent((await params).locale);
 
   if (!mdxSource) {
     return <div>Error loading pre-departure content.</div>;
@@ -55,4 +53,11 @@ export default async function Page({
       {content}
     </article>
   );
+}
+
+export function generateStaticParams() {
+  return [
+    { locale: "en" },
+    { locale: "ne" }
+  ];
 }

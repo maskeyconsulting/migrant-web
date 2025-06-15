@@ -26,13 +26,9 @@ async function getSkillsLearningContent(locale: string) {
     return null;
   }
 }
+export default async function Page({ params }: { params: Promise < { locale: string } > }) {
 
-export default async function Page({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
-  const mdxSource = await getSkillsLearningContent(locale);
+  const mdxSource = await getSkillsLearningContent((await params).locale);
 
   if (!mdxSource) {
     return <div>Error loading skills learning content.</div>;
@@ -55,4 +51,11 @@ export default async function Page({
       {content}
     </article>
   );
+}
+
+export function generateStaticParams() {
+  return [
+    { locale: "en" },
+    { locale: "ne" },
+  ];
 }

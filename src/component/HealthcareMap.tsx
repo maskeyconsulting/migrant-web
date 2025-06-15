@@ -1,9 +1,10 @@
+
 "use client";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Fix: Leaflet icon issue
 import "leaflet/dist/images/marker-icon-2x.png";

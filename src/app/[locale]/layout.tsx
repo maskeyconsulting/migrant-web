@@ -1,61 +1,30 @@
 // src/app/[locale]/layout.tsx
-"use client";
 
 import "../globals.css";
-import { Inter, Montserrat } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { notFound, useParams } from "next/navigation";
 import Header from "@/component/Header";
 import Footer from "@/component/Footer";
-import { useState, useEffect } from "react";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-});
-
-type Params = {
-  locale: string;
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise <{ locale: string }>;
 }) {
-  const [messages, setMessages] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const params = useParams();
-  const locale = params?.locale as string;
-
-  useEffect(() => {
-    const loadMessages = async () => {
-      try {
-        const loadedMessages = (await import(`../../messages/${locale}.json`))
-          .default;
-        setMessages(loadedMessages);
-        setIsLoaded(true);
-      } catch (error) {
-        notFound();
-      }
-    };
-
-    loadMessages();
-  }, [locale]);
+  // Do NOT fallback to "en" here, let Next.js handle the params
+  const messages = (await import(`../../messages/${(await params).locale}.json`)).default;
 
   return (
-    <html lang={locale} className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang={(await params).locale}>
       <body>
-        {messages && (
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            <Header />
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              {children}
-            </main>
-            <Footer />
-          </NextIntlClientProvider>
-        )}
+        <NextIntlClientProvider locale={(await params).locale} messages={messages}>
+          <Header />
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
