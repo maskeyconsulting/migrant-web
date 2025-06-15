@@ -1,9 +1,9 @@
-const createNextIntlPlugin = require('next-intl/plugin');
-const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+const withNextIntl = require("next-intl/plugin")();
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
+const config = {
+  output: "export",
+  trailingSlash: true, // Important for static export
   images: {
     unoptimized: true,
   },
@@ -12,7 +12,7 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
-  }
+  },
 };
 
-module.exports = withNextIntl(nextConfig);
+module.exports = withNextIntl(config);

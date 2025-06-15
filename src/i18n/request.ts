@@ -1,10 +1,17 @@
-import {getRequestConfig} from 'next-intl/server';
+import { getRequestConfig } from "next-intl/server";
+import enMessages from "../messages/en.json";
+import neMessages from "../messages/ne.json";
 
-export default getRequestConfig(async ({locale}) => {
-  const resolvedLocale = locale ?? 'en'; // fallback to 'en' or your default locale
+const messages = {
+  en: enMessages,
+  ne: neMessages,
+};
+
+export default getRequestConfig(async ({ locale }) => {
+  const resolvedLocale = locale ?? "en";
   return {
     locale: resolvedLocale,
-    messages: (await import(`../messages/${resolvedLocale}.json`)).default
+    messages: messages[resolvedLocale as keyof typeof messages],
+    timeZone: "Asia/Kathmandu",
   };
 });
-

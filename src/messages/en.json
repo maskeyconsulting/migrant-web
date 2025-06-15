@@ -50,5 +50,9 @@
     "mentalHealthDesc": "Include information about mental health support services here",
     "importantContacts": "Important Contacts",
     "contactsDesc": "List contact information for relevant healthcare authorities"
+  },
+  "navigation": {
+    "home": "Home",
+    "countries": "Countries"
   }
 }
