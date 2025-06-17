@@ -3,6 +3,7 @@ import React from "react";
 import InfoCard from "@/component/InfoCard";
 import FeedbackButtons from "@/component/FeedbackButtons";
 import VideoModal from "@/component/VideoModal";
+import { VideoCarousel } from "@/component/VideoCarousel";
 import { useTranslations } from "next-intl";
 import { GoLaw } from "react-icons/go";
 import { MdOutlinePermPhoneMsg, MdHotel, MdSchool } from "react-icons/md";
@@ -11,9 +12,33 @@ import { FaPlane } from "react-icons/fa";
 import { TbHospitalCircleFilled } from "react-icons/tb";
 import Image from "next/image";
 
+const sampleVideos = [
+  {
+    id: "FxLLO-dO0gk",
+    title: "Salary and Living",
+    thumbnail: "https://img.youtube.com/vi/FxLLO-dO0gk/maxresdefault.jpg",
+  },
+  {
+    id: "odBcfd_74Vw",
+    title: "Getting to Qatar",
+    thumbnail: "https://img.youtube.com/vi/odBcfd_74Vw/maxresdefault.jpg",
+  },
+  {
+    id: "video3",
+    title: "Finding Accommodation",
+    thumbnail: "https://img.youtube.com/vi/SAMPLE_ID_3/maxresdefault.jpg",
+  },
+];
+
 export default function HomeClient({ locale }: { locale: string }) {
   const t = useTranslations("homePage");
   const [isVideoModalOpen, setIsVideoModalOpen] = React.useState(false);
+  const [selectedVideoId, setSelectedVideoId] = React.useState("");
+
+  const handleVideoSelect = (videoId: string) => {
+    setSelectedVideoId(videoId);
+    setIsVideoModalOpen(true);
+  };
 
   return (
     <>
@@ -33,7 +58,7 @@ export default function HomeClient({ locale }: { locale: string }) {
         </div>
       </div>
 
-      <div className="my-8">
+      {/* <div className="my-8">
         <button
           onClick={() => setIsVideoModalOpen(true)}
           className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
@@ -59,7 +84,7 @@ export default function HomeClient({ locale }: { locale: string }) {
           </svg>
           {t("watchVideo")}
         </button>
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <InfoCard
@@ -119,6 +144,11 @@ export default function HomeClient({ locale }: { locale: string }) {
         />
       </div>
 
+      <div className="my-8">
+        <h2 className="text-2xl font-bold mb-6">{t("featuredVideos")}</h2>
+        <VideoCarousel videos={sampleVideos} onVideoSelect={handleVideoSelect} />
+      </div>
+
       <FeedbackButtons
         onYes={() => console.log("Yes clicked")}
         onNo={() => console.log("No clicked")}
@@ -127,8 +157,7 @@ export default function HomeClient({ locale }: { locale: string }) {
       <VideoModal
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
-        videoSrc="https://www.youtube.com/watch?v=odBcfd_74Vw"
-        isYouTube={true}
+        videoId={selectedVideoId}
       />
     </>
   );

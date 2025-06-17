@@ -5,6 +5,12 @@ import { FcGlobe } from "react-icons/fc";
 const Header = () => {
   const t = useTranslations("common");
   const locale = useLocale();
+  const toggleLocale = locale === "en" ? "ne" : "en";
+  
+  // Add this function to display the language name
+  const getLanguageDisplay = (loc: string) => {
+    return loc === "en" ? "नेपाली" : "English";
+  };
 
   return (
     <header className="bg-white py-4 shadow-md">
@@ -17,6 +23,9 @@ const Header = () => {
             <Link href={`/${locale}/countries`} className="hover:text-gray-600">
               <FcGlobe className="inline-block mr-2" />
               {t("countries")}
+            </Link>
+            <Link href={`/${toggleLocale}`} className="hover:text-gray-600">
+              {getLanguageDisplay(locale)}
             </Link>
           </div>
         </nav>

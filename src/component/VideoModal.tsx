@@ -1,22 +1,15 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 interface VideoModalProps {
   isOpen: boolean;
   onClose: () => void;
-  videoSrc: string;
-  isYouTube?: boolean;
+  videoId?: string;
 }
 
-const VideoModal = ({
-  isOpen,
-  onClose,
-  videoSrc,
-  isYouTube = false,
-}: VideoModalProps) => {
+export default function VideoModal({ isOpen, onClose, videoId }: VideoModalProps) {
   const [isShowing, setIsShowing] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -24,63 +17,58 @@ const VideoModal = ({
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
-      setTimeout(() => {
-        setIsShowing(false);
-        if (videoRef.current) {
-          videoRef.current.pause();
-        }
-      }, 300);
+      setTimeout(() => setIsShowing(false), 300);
     }
   }, [isOpen]);
 
+
+
   if (!isShowing) return null;
 
-  const youtubeEmbedUrl = isYouTube
-    ? videoSrc.replace("watch?v=", "embed/")
-    : videoSrc;
+  const youtubeEmbedUrl = videoId 
+    ? `https://www.youtube.com/embed/${videoId}`
+    : "";
 
   return (
-    <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 transition-opacity duration-300 ${
-        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div
-        className="bg-white rounded-lg p-2 max-w-3xl w-full mx-4"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="relative pt-[56.25%]">
-          {isYouTube ? (
+        className="absolute inset-0 bg-black/50"
+        onClick={onClose}
+      />
+      <div className="relative bg-white rounded-lg w-full max-w-4xl mx-4 overflow-hidden">
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 text-gray-500 hover:text-gray-700 z-10"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <div className="w-full aspect-video">
+          {videoId ? (
             <iframe
-              className="absolute top-0 left-0 w-full h-full"
+              width="100%"
+              height="100%"
               src={youtubeEmbedUrl}
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-            ></iframe>
-          ) : (
-            <video
-              ref={videoRef}
-              className="absolute inset-0 w-full h-full"
-              controls
-              autoPlay
-              src={videoSrc}
-            >
-              Your browser does not support the video tag.
-            </video>
-          )}
-        </div>
-        <div className="p-4 flex justify-end">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-          >
-            Close
-          </button>
+            />
+          ) : null}
         </div>
       </div>
     </div>
   );
 };
 
-export default VideoModal;
+

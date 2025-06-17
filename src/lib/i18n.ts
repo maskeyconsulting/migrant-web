@@ -2,9 +2,9 @@ import { createIntl } from "@formatjs/intl";
 
 export const getMessages = async (locale: string) => {
   try {
-    return (await import(`../../public/locales/${locale}/common.json`)).default;
+    return (await import(`../messages/${locale}.json`)).default;
   } catch (error) {
-    return (await import(`../../public/locales/en/common.json`)).default;
+    return (await import(`../messages/en.json`)).default;
   }
 };
 

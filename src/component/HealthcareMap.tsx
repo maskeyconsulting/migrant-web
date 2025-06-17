@@ -1,22 +1,26 @@
-
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import L from "leaflet";
 
-// Fix: Leaflet icon issue
-import "leaflet/dist/images/marker-icon-2x.png";
-import "leaflet/dist/images/marker-shadow.png";
-
-// Removed unnecessary line as _getIconUrl is not a valid property
-
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "/leaflet/images/marker-icon-2x.png",
-  iconUrl: "/leaflet/images/marker-icon.png",
-  shadowUrl: "/leaflet/images/marker-shadow.png",
-});
+// Dynamically import react-leaflet components with no SSR
+const MapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  { ssr: false }
+);
+const TileLayer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  { ssr: false }
+);
+const Marker = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Marker),
+  { ssr: false }
+);
+const Popup = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Popup),
+  { ssr: false }
+);
 
 const locations = [
   {
@@ -36,10 +40,23 @@ const locations = [
   },
 ];
 
-export default function HealthcareMap() {
+const HealthcareMap = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
-    // This ensures the code runs only on the client-side
+    setIsMounted(true);
+    // Fix the leaflet icon issue
+    delete (L as any).Icon.Default.prototype._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png").default,
+      iconUrl: require("leaflet/dist/images/marker-icon.png").default,
+      shadowUrl: require("leaflet/dist/images/marker-shadow.png").default,
+    });
   }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <MapContainer
@@ -48,8 +65,8 @@ export default function HealthcareMap() {
       style={{ height: "400px", width: "100%" }}
     >
       <TileLayer
-        attribution="&copy; OpenStreetMap contributors"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {locations.map((loc, idx) => (
         <Marker key={idx} position={loc.position as [number, number]}>
@@ -60,4 +77,6 @@ export default function HealthcareMap() {
       ))}
     </MapContainer>
   );
-}
+};
+
+export default HealthcareMap;

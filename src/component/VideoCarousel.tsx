@@ -1,0 +1,64 @@
+"use client"
+
+import * as React from "react"
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Image from "next/image"
+
+interface Video {
+  id: string
+  title: string
+  thumbnail: string
+}
+
+interface VideoCarouselProps {
+  videos: Video[]
+  onVideoSelect: (videoId: string) => void
+}
+
+export function VideoCarousel({ videos, onVideoSelect }: VideoCarouselProps) {
+  return (
+    <Carousel className="w-full max-w-4xl mx-auto">
+      <CarouselContent>
+        {videos.map((video) => (
+          <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/3">
+            <div className="p-1">
+              <Card className="cursor-pointer hover:scale-105 transition-transform" onClick={() => onVideoSelect(video.id)}>
+                <CardContent className="flex flex-col items-center p-4">
+                  <div className="relative w-full aspect-video">
+                    <Image
+                      src={video.thumbnail}
+                      alt={video.title}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center">
+                        <Image
+                          src="/icons/video-play.svg"
+                          alt="Play"
+                          width={24}
+                          height={24}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="mt-2 text-center line-clamp-2 font-serif text-lg font-medium">{video.title}</h3>
+
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
+}
