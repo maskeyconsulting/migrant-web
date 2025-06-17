@@ -86,7 +86,7 @@ export default function HomeClient({ locale }: { locale: string }) {
         </button>
       </div> */}
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         <InfoCard
           icon="/icons/legal-document.svg"
           title="legalRights"
@@ -128,21 +128,28 @@ export default function HomeClient({ locale }: { locale: string }) {
           title="skillsLearning"
           href={`/${locale}/skills-learning`}
           IconComponent={MdSchool}
-        />{" "}
-        <br />
-        <InfoCard
-          icon="/icons/skillslearning.svg"
-          title="questionnaireForMigrants"
-          href={`https://forms.gle/zC1vuJCrY7hRAMXg8`}
-          IconComponent={MdSchool}
-        />
-        <InfoCard
-          icon="/icons/skillslearning.svg"
-          title="questionnaireForMigrantExperts"
-          href={`https://forms.gle/Ma76utXHfsbDkDKC9`}
-          IconComponent={MdSchool}
         />
       </div>
+
+      <section className="mt-5">
+        {/* Different Section? */}
+        <h3 className="text-3xl font-bold text-center ">{t("share")}</h3> 
+        <div className=" flex flex-row w-full justify-center items-center gap-4 my-8">
+          <InfoCard
+            icon="/icons/skillslearning.svg"
+            title="questionnaireForMigrants"
+            href={`https://forms.gle/zC1vuJCrY7hRAMXg8`}
+            IconComponent={MdSchool}
+          />
+          <InfoCard
+            icon="/icons/skillslearning.svg"
+            title="questionnaireForMigrantExperts"
+            href={`https://forms.gle/Ma76utXHfsbDkDKC9`}
+            IconComponent={MdSchool}
+          />
+        </div>
+      </section>
+
 
       <div className="my-8">
         <h2 className="text-2xl font-bold mb-6">{t("featuredVideos")}</h2>
