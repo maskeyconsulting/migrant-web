@@ -45,8 +45,8 @@ export function generateStaticParams() {
   ];
 }
 
-export default async function Page() {
-  const currentLocale = "en"; // Replace with your locale logic
+export default async function Page({ params }: {  params: Promise<{ locale: string }> }) {
+  const currentLocale = (await params).locale;
 
   const mdxSource = await getEmergencyHelpContent(currentLocale);
 
