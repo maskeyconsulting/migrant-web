@@ -1,3 +1,4 @@
+"use client"
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { FcGlobe } from "react-icons/fc";
@@ -6,7 +7,6 @@ const Header = () => {
   const t = useTranslations("common");
   const locale = useLocale();
   const toggleLocale = locale === "en" ? "ne" : "en";
-  
   // Add this function to display the language name
   const getLanguageDisplay = (loc: string) => {
     return loc === "en" ? "नेपाली" : "English";
