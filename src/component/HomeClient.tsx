@@ -53,7 +53,7 @@ export default function HomeClient({ locale }: { locale: string }) {
           />
         </div>
         <div>
-          <h1 className="text-4xl font-bold mb-4">{t("title")}</h1>
+          <h1 className="text-4xl font-semi-bold mb-4">{t("title")}</h1>
           <p className="text-xl">{t("subtitle")}</p>
         </div>
       </div>
