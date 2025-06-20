@@ -12,7 +12,12 @@
     "about": "बारेमा",
     "privacySafety": "गोपनीयता र सुरक्षा",
     "partners": "साझेदारहरू",
-    "healthcareInsurance": "स्वास्थ्य सेवा र बीमा"
+    "healthcareInsurance": "स्वास्थ्य सेवा र बीमा",
+    "moreInformation": "थप जानकारी",
+    "healthcareTitle": "स्वास्थ्य सेवा",
+    "insurance": "बीमा",
+    "facilities": "सुविधाहरू",
+    "emergency": "आपतकालीन"
   },
 
   "legalRights": {
@@ -67,6 +72,13 @@
     "mentalHealthDesc": "यहाँ मानसिक स्वास्थ्य समर्थन सेवाहरूको बारेमा जानकारी समावेश गर्नुहोस्",
     "importantContacts": "महत्त्वपूर्ण सम्पर्कहरू",
     "contactsDesc": "प्रासंगिक स्वास्थ्य सेवा प्राधिकरणहरूको लागि सम्पर्क जानकारीको सूची"
+  },
+  "healthcare": {
+    "title": "स्वास्थ्य सेवा मार्गदर्शन",
+    "essentialCare": "आधारभूत स्वास्थ्य सेवा",
+    "facilities": "स्वास्थ्य सेवा सुविधाहरू",
+    "emergency": "आपतकालीन सेवाहरू",
+    "insurance": "बीमा कभरेज"
   },
   "navigation": {
     "home": "गृहपृष्ठ",

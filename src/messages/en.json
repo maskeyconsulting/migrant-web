@@ -12,7 +12,12 @@
     "about": "About",
     "privacySafety": "Privacy & Safety",
     "partners": "Partners",
-    "healthcareInsurance": "Healthcare & Insurance"
+    "healthcareInsurance": "Healthcare & Insurance",
+    "moreInformation": "More Information",
+    "healthcareTitle": "Healthcare Access",
+    "insurance": "Insurance",
+    "facilities": "Facilities",
+    "emergency": "Emergency"
   },
   "homePage": {
     "title": "Working in Qatar – A Guide for Nepali Migrant Workers",
@@ -53,6 +58,13 @@
     "mentalHealthDesc": "Include information about mental health support services here",
     "importantContacts": "Important Contacts",
     "contactsDesc": "List contact information for relevant healthcare authorities"
+  },
+  "healthcare": {
+    "title": "Healthcare Access Guidelines",
+    "essentialCare": "Essential Healthcare",
+    "facilities": "Healthcare Facilities",
+    "emergency": "Emergency Services",
+    "insurance": "Insurance Coverage"
   },
   "navigation": {
     "home": "Home",
