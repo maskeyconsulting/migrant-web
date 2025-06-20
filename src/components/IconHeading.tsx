@@ -9,6 +9,11 @@ import {
   FaPassport,
   FaPlane,
   FaInfoCircle,
+  FaExclamationTriangle,
+  FaClipboardCheck,
+  FaHeadset,
+  FaDollarSign,
+  FaFileAlt,
 } from "react-icons/fa";
 
 interface IconHeadingProps {
@@ -26,6 +31,11 @@ const iconMap = {
   passport: FaPassport,
   plane: FaPlane,
   info: FaInfoCircle,
+  contract: FaFileAlt,
+  "fee-policy": FaDollarSign,
+  "warning-sign": FaExclamationTriangle,
+  checklist: FaClipboardCheck,
+  support: FaHeadset,
 };
 
 export default function IconHeading({ icon, children }: IconHeadingProps) {

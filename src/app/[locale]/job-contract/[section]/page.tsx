@@ -3,32 +3,28 @@ import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import ContentSection from "@/components/ContentSection";
-import PolicyCard from "@/components/PolicyCard";
 import IconHeading from "@/components/IconHeading";
-import MoreInfoButton from "@/components/MoreInfoButton";
 import Link from "next/link";
 
 const components: MDXRemoteProps["components"] = {
   ContentSection,
-  PolicyCard,
   IconHeading,
-  MoreInfoButton,
   Link,
   h1: (props) => <h1 {...props} className="text-4xl font-bold mb-6" />,
   h2: (props) => <h2 {...props} className="text-3xl font-semibold mb-4" />,
   h3: (props) => <h3 {...props} className="text-2xl font-medium mb-3" />,
 };
 
-async function getJobContractContent(locale: string) {
+async function getContractContent(section: string, locale: string) {
   const contentPath = path.join(
     process.cwd(),
-    `src/content/job-contract-tips.${locale}.mdx`
+    `src/content/contract/${section}.${locale}.mdx`
   );
   try {
     const source = await fs.readFile(contentPath, "utf8");
     return source;
   } catch (error) {
-    console.error("Failed to read MDX file:", error);
+    console.error(`Failed to read MDX file for section ${section}:`, error);
     return null;
   }
 }
@@ -36,12 +32,13 @@ async function getJobContractContent(locale: string) {
 export default async function Page({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ section: string; locale: string }>;
 }) {
-  const mdxSource = await getJobContractContent((await params).locale);
+  const { section, locale } = await params;
+  const mdxSource = await getContractContent(section, locale);
 
   if (!mdxSource) {
-    return <div>Error loading job contract content.</div>;
+    return <div>Error loading contract content.</div>;
   }
 
   const { content } = await compileMDX({
@@ -64,5 +61,12 @@ export default async function Page({
 }
 
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "ne" }];
+  return [
+    { locale: "en", section: "basics" },
+    { locale: "en", section: "fees" },
+    { locale: "en", section: "documents" },
+    { locale: "ne", section: "basics" },
+    { locale: "ne", section: "fees" },
+    { locale: "ne", section: "documents" },
+  ];
 }

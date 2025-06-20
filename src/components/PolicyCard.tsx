@@ -1,6 +1,21 @@
 import { ReactNode } from "react";
 import { IconType } from "react-icons";
-import { FaMedkit, FaHospital, FaAmbulance } from "react-icons/fa";
+import {
+  FaMedkit,
+  FaHospital,
+  FaAmbulance,
+  FaFileContract,
+  FaBalanceScale,
+  FaHandsHelping,
+  FaPassport,
+  FaPlane,
+  FaInfoCircle,
+  FaExclamationTriangle,
+  FaClipboardCheck,
+  FaHeadset,
+  FaDollarSign,
+  FaFileAlt,
+} from "react-icons/fa";
 
 interface PolicyCardProps {
   icon: string;
@@ -12,6 +27,18 @@ const iconMap: { [key: string]: IconType } = {
   medical: FaMedkit,
   hospital: FaHospital,
   emergency: FaAmbulance,
+  legal: FaFileContract,
+  rights: FaBalanceScale,
+  help: FaHandsHelping,
+  insurance: FaMedkit,
+  passport: FaPassport,
+  plane: FaPlane,
+  info: FaInfoCircle,
+  contract: FaFileAlt,
+  "fee-policy": FaDollarSign,
+  "warning-sign": FaExclamationTriangle,
+  checklist: FaClipboardCheck,
+  support: FaHeadset,
 };
 
 export default function PolicyCard({
