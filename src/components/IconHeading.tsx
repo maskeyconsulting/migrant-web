@@ -6,6 +6,9 @@ import {
   FaMedkit,
   FaHospital,
   FaAmbulance,
+  FaPassport,
+  FaPlane,
+  FaInfoCircle,
 } from "react-icons/fa";
 
 interface IconHeadingProps {
@@ -20,6 +23,9 @@ const iconMap = {
   insurance: FaMedkit,
   medical: FaHospital,
   emergency: FaAmbulance,
+  passport: FaPassport,
+  plane: FaPlane,
+  info: FaInfoCircle,
 };
 
 export default function IconHeading({ icon, children }: IconHeadingProps) {
