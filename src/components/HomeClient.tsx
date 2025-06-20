@@ -42,17 +42,17 @@ export default function HomeClient({ locale }: { locale: string }) {
 
   return (
     <>
-      <div className="grid md:grid-cols-2 items-center mb-8">
-        <div>
+      <div className="grid md:grid-cols-2 items-center mb-8 gap-0">
+        <div className="flex justify-center mr-0">
           <Image
             src="/placeholder.png"
             alt="Workers in Qatar"
-            width={400}
-            height={400}
+            width={500}
+            height={500}
             className="bg-gray-200"
           />
         </div>
-        <div>
+        <div className="ml-1 p-0">
           <h1 className="text-4xl font-semi-bold mb-4">{t("title")}</h1>
           <p className="text-xl">{t("subtitle")}</p>
         </div>
@@ -127,11 +127,6 @@ export default function HomeClient({ locale }: { locale: string }) {
         <h2 className="text-2xl font-bold mb-8  ">{t("featuredVideos")}</h2>
         <VideoCarousel videos={sampleVideos} onVideoSelect={handleVideoSelect} />
       </div>
-
-      <FeedbackButtons
-        onYes={() => console.log("Yes clicked")}
-        onNo={() => console.log("No clicked")}
-      />
 
       <VideoModal
         isOpen={isVideoModalOpen}
