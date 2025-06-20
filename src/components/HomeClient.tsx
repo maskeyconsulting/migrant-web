@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import InfoCard from "@/component/InfoCard";
-import FeedbackButtons from "@/component/FeedbackButtons";
-import VideoModal from "@/component/VideoModal";
-import { VideoCarousel } from "@/component/VideoCarousel";
+import InfoCard from "@/components/InfoCard";
+import FeedbackButtons from "@/components/FeedbackButtons";
+import VideoModal from "@/components/VideoModal";
+import { VideoCarousel } from "@/components/VideoCarousel";
 import { useTranslations } from "next-intl";
 import { GoLaw } from "react-icons/go";
 import { MdOutlinePermPhoneMsg, MdHotel, MdSchool } from "react-icons/md";
@@ -42,7 +42,7 @@ export default function HomeClient({ locale }: { locale: string }) {
 
   return (
     <>
-      <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
+      <div className="grid md:grid-cols-2 items-center mb-8">
         <div>
           <Image
             src="/placeholder.png"
@@ -57,34 +57,6 @@ export default function HomeClient({ locale }: { locale: string }) {
           <p className="text-xl">{t("subtitle")}</p>
         </div>
       </div>
-
-      {/* <div className="my-8">
-        <button
-          onClick={() => setIsVideoModalOpen(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          {t("watchVideo")}
-        </button>
-      </div> */}
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         <InfoCard
@@ -152,7 +124,7 @@ export default function HomeClient({ locale }: { locale: string }) {
 
 
       <div className="my-8">
-        <h2 className="text-2xl font-bold mb-6">{t("featuredVideos")}</h2>
+        <h2 className="text-2xl font-bold mb-8  ">{t("featuredVideos")}</h2>
         <VideoCarousel videos={sampleVideos} onVideoSelect={handleVideoSelect} />
       </div>
 

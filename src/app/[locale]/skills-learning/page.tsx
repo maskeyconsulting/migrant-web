@@ -3,7 +3,7 @@ import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { compileMDX } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import SectionContainer from "@/component/SectionContainer";
+import SectionContainer from "@/components/SectionContainer";
 import Link from "next/link";
 
 type Components = MDXRemoteProps["components"];

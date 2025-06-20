@@ -1,10 +1,10 @@
 // src/app/[locale]/page.tsx
 // Home page implementation
-import InfoCard from "@/component/InfoCard";
-import VideoButton from "@/component/VideoButton";
-import SectionContainer from "@/component/SectionContainer";
-import FeedbackButtons from "@/component/FeedbackButtons";
-import VideoModal from "@/component/VideoModal";
+import InfoCard from "@/components/InfoCard";
+import VideoButton from "@/components/VideoButton";
+import SectionContainer from "@/components/SectionContainer";
+import FeedbackButtons from "@/components/FeedbackButtons";
+import VideoModal from "@/components/VideoModal";
 import { GoLaw } from "react-icons/go";
 import { MdOutlinePermPhoneMsg, MdHotel, MdSchool } from "react-icons/md";
 import { GrUserWorker } from "react-icons/gr";
@@ -22,7 +22,7 @@ export function generateStaticParams() {
 }
 
 // Move all client logic and useTranslations to a client component
-import HomeClient from "@/component/HomeClient";
+import HomeClient from "@/components/HomeClient";
 
 export default async function Home({ params }: { params: Promise < { locale: string } > }) {
   // Just pass the locale down

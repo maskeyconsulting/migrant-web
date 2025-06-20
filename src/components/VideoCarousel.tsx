@@ -24,10 +24,10 @@ interface VideoCarouselProps {
 
 export function VideoCarousel({ videos, onVideoSelect }: VideoCarouselProps) {
   return (
-    <Carousel className="w-full max-w-4xl mx-auto">
+    <Carousel className="w-full max-w-8xl mx-auto">
       <CarouselContent>
         {videos.map((video) => (
-          <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/2">
             <div className="p-1">
               <Card className="cursor-pointer hover:scale-105 transition-transform" onClick={() => onVideoSelect(video.id)}>
                 <CardContent className="flex flex-col items-center p-4">
@@ -43,14 +43,13 @@ export function VideoCarousel({ videos, onVideoSelect }: VideoCarouselProps) {
                         <Image
                           src="/icons/video-play.svg"
                           alt="Play"
-                          width={24}
-                          height={24}
+                          width={30}
+                          height={30}
                         />
                       </div>
                     </div>
                   </div>
-                  <h3 className="mt-2 text-center line-clamp-2 font-serif text-lg font-medium">{video.title}</h3>
-
+                    <h1 className="mt-3 text-center line-clamp-2 font-montserrat text-2xl font-light">{video.title}</h1>
                 </CardContent>
               </Card>
             </div>

@@ -2,9 +2,9 @@ import { promises as fs } from "fs";
 import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import SectionContainer from "@/component/SectionContainer";
+import SectionContainer from "@/components/SectionContainer";
 import Link from "next/link";
-import MapWrapper from "@/component/MapWrapper";
+import MapWrapper from "@/components/MapWrapper";
 
 type Components = MDXRemoteProps["components"];
 

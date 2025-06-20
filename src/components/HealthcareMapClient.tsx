@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 
 const HealthcareMap = dynamic(
-  () => import('@/component/HealthcareMap'),
+  () => import('@/components/HealthcareMap'),
   { ssr: false }
 );
 
