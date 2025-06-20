@@ -149,12 +149,19 @@ export default function HomeClient({ locale }: { locale: string }) {
         </div>
       </section>
 
-      <div className="my-8">
-        <h2 className="text-2xl font-bold mb-8  ">{t("featuredVideos")}</h2>
-        <VideoCarousel
-          videos={sampleVideos}
-          onVideoSelect={handleVideoSelect}
-        />
+      <div className="w-full relative -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12">
+        <div className="bg-gradient-to-b from-[#F9A13A] to-[#F5821F] pt-16 pb-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+            <h2 className="text-[2.5rem] font-normal font-montserrat tracking-wide text-black uppercase text-center mb-12">
+              {t("featuredVideos")}
+            </h2>
+            <VideoCarousel
+              videos={sampleVideos}
+              onVideoSelect={handleVideoSelect}
+            />
+          </div>
+        </div>
+        <div className="h-16 bg-gradient-to-b from-[#F5821F] to-transparent" />
       </div>
 
       <VideoModal
