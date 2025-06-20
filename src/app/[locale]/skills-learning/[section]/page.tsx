@@ -32,13 +32,13 @@ export function generateStaticParams() {
     { locale: "en", section: "professional" },
     { locale: "en", section: "digital" },
     { locale: "en", section: "arabic-learning" },
-    { locale: "en", section: "professional-development" },
+    { locale: "en", section: "professionaldevelopment" },
     { locale: "en", section: "digital-safety" },
     { locale: "ne", section: "language" },
     { locale: "ne", section: "professional" },
     { locale: "ne", section: "digital" },
     { locale: "ne", section: "arabic-learning" },
-    { locale: "ne", section: "professional-development" },
+    { locale: "ne", section: "professionaldevelopment" },
     { locale: "ne", section: "digital-safety" },
   ];
 }
