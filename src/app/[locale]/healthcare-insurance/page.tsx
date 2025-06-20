@@ -4,14 +4,15 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import SectionContainer from "@/components/SectionContainer";
 import Link from "next/link";
-import MapWrapper from "@/components/MapWrapper";
+import dynamic from "next/dynamic";
+import MdxHealthcareMap from "@/components/MdxHealthcareMap";
 
 type Components = MDXRemoteProps["components"];
 
 const components: Components = {
   SectionContainer,
   Link,
-  HealthcareMap: MapWrapper,
+  HealthcareMap: MdxHealthcareMap,
   h1: (props) => (
     <h1 {...props} className="font-heading text-4xl font-bold mb-4" />
   ),
@@ -38,7 +39,11 @@ async function getHealthcareInsuranceContent(locale: string) {
     return null;
   }
 }
-export default async function Page({ params }: { params: Promise < { locale: string } > }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   // Get the locale from props without destructuring
   const locale = (await params).locale ?? "en";
   const mdxSource = await getHealthcareInsuranceContent(locale);
@@ -60,8 +65,5 @@ export default async function Page({ params }: { params: Promise < { locale: str
 }
 
 export function generateStaticParams() {
-  return [
-    { locale: "en" },
-    { locale: "ne" },
-  ];
+  return [{ locale: "en" }, { locale: "ne" }];
 }
