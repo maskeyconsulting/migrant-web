@@ -1,19 +1,18 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { compileMDX } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import SectionContainer from "@/components/SectionContainer";
-import Link from "next/link";
+import ContentSection from "@/components/ContentSection";
+import IconHeading from "@/components/IconHeading";
+import MoreInfoButton from "@/components/MoreInfoButton";
 
-type Components = MDXRemoteProps["components"];
-
-const components: Components = {
-  SectionContainer,
-  Link,
+const components: MDXRemoteProps["components"] = {
+  ContentSection,
+  IconHeading,
+  MoreInfoButton,
 };
 
-async function getSkillsLearningContent(locale: string) {
+async function getSkillsContent(locale: string) {
   const contentPath = path.join(
     process.cwd(),
     `src/content/skills-learning.${locale}.mdx`
@@ -26,9 +25,13 @@ async function getSkillsLearningContent(locale: string) {
     return null;
   }
 }
-export default async function Page({ params }: { params: Promise < { locale: string } > }) {
 
-  const mdxSource = await getSkillsLearningContent((await params).locale);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const mdxSource = await getSkillsContent((await params).locale);
 
   if (!mdxSource) {
     return <div>Error loading skills learning content.</div>;
@@ -47,15 +50,12 @@ export default async function Page({ params }: { params: Promise < { locale: str
   });
 
   return (
-    <article className="prose prose-lg dark:prose-invert max-w-none mx-auto px-4 py-8">
+    <article className="prose prose-lg max-w-none mx-auto px-4 py-8">
       {content}
     </article>
   );
 }
 
 export function generateStaticParams() {
-  return [
-    { locale: "en" },
-    { locale: "ne" },
-  ];
+  return [{ locale: "en" }, { locale: "ne" }];
 }
