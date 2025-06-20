@@ -12,26 +12,53 @@ import { FaPlane } from "react-icons/fa";
 import { TbHospitalCircleFilled } from "react-icons/tb";
 import Image from "next/image";
 
-const sampleVideos = [
-  {
-    id: "FxLLO-dO0gk",
-    title: "Salary and Living",
-    thumbnail: "https://img.youtube.com/vi/FxLLO-dO0gk/maxresdefault.jpg",
-  },
-  {
-    id: "odBcfd_74Vw",
-    title: "Getting to Qatar",
-    thumbnail: "https://img.youtube.com/vi/odBcfd_74Vw/maxresdefault.jpg",
-  },
-  {
-    id: "video3",
-    title: "Finding Accommodation",
-    thumbnail: "https://img.youtube.com/vi/SAMPLE_ID_3/maxresdefault.jpg",
-  },
-];
-
 export default function HomeClient({ locale }: { locale: string }) {
   const t = useTranslations("homePage");
+  const v = useTranslations("videos");
+
+  const sampleVideos = [
+    {
+      id: "FxLLO-dO0gk",
+      title: v("salaryAndLiving"),
+      thumbnail: "https://img.youtube.com/vi/FxLLO-dO0gk/maxresdefault.jpg",
+    },
+    {
+      id: "odBcfd_74Vw",
+      title: v("gettingToQatar"),
+      thumbnail: "https://img.youtube.com/vi/odBcfd_74Vw/maxresdefault.jpg",
+    },
+    {
+      id: "9egxOlz_CNE",
+      title: v("kathmanduToQatar"),
+      thumbnail: "https://img.youtube.com/vi/9egxOlz_CNE/maxresdefault.jpg",
+    },
+    {
+      id: "mti12ceqxho",
+      title: v("nepalToQatar"),
+      thumbnail: "https://img.youtube.com/vi/mti12ceqxho/maxresdefault.jpg",
+    },
+    {
+      id: "TsOJ0WqyFQs",
+      title: v("dohaToKathmandu"),
+      thumbnail: "https://img.youtube.com/vi/TsOJ0WqyFQs/maxresdefault.jpg",
+    },
+    {
+      id: "th0CfwNet6c",
+      title: v("drivingInDoha"),
+      thumbnail: "https://img.youtube.com/vi/th0CfwNet6c/maxresdefault.jpg",
+    },
+    {
+      id: "0h59rIgfhlo",
+      title: v("firstTimeFlying"),
+      thumbnail: "https://img.youtube.com/vi/0h59rIgfhlo/maxresdefault.jpg",
+    },
+    {
+      id: "pZmlN6PULNE",
+      title: v("preFlightCheck"),
+      thumbnail: "https://img.youtube.com/vi/pZmlN6PULNE/maxresdefault.jpg",
+    },
+  ];
+
   const [isVideoModalOpen, setIsVideoModalOpen] = React.useState(false);
   const [selectedVideoId, setSelectedVideoId] = React.useState("");
 
@@ -105,7 +132,7 @@ export default function HomeClient({ locale }: { locale: string }) {
 
       <section className="mt-5">
         {/* Different Section? */}
-        <h3 className="text-3xl font-bold text-center ">{t("share")}</h3> 
+        <h3 className="text-3xl font-bold text-center ">{t("share")}</h3>
         <div className=" flex flex-row w-full justify-center items-center gap-4 my-8">
           <InfoCard
             icon="/icons/skillslearning.svg"
@@ -122,10 +149,12 @@ export default function HomeClient({ locale }: { locale: string }) {
         </div>
       </section>
 
-
       <div className="my-8">
         <h2 className="text-2xl font-bold mb-8  ">{t("featuredVideos")}</h2>
-        <VideoCarousel videos={sampleVideos} onVideoSelect={handleVideoSelect} />
+        <VideoCarousel
+          videos={sampleVideos}
+          onVideoSelect={handleVideoSelect}
+        />
       </div>
 
       <VideoModal

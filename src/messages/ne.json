@@ -71,5 +71,15 @@
   "navigation": {
     "home": "गृहपृष्ठ",
     "countries": "देशहरू"
+  },
+  "videos": {
+    "salaryAndLiving": "तलब र जीवन",
+    "gettingToQatar": "कतार जाने",
+    "kathmanduToQatar": "काठमाडौंबाट कतार उडान",
+    "nepalToQatar": "नेपालबाट कतार उडान",
+    "dohaToKathmandu": "दोहाबाट काठमाडौं उडान",
+    "drivingInDoha": "दोहामा गाडी चलाउने",
+    "firstTimeFlying": "पहिलो पटक हवाई यात्रा",
+    "preFlightCheck": "उडान पूर्व जाँच"
   }
 }

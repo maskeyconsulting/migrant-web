@@ -30,7 +30,7 @@
     "clickToLearnMore": "Click here to learn more",
     "watchVideo": "Watch this short video in Nepali",
     "skillsLearning": "Skills Learning",
-    "share":"Share Your Experiences",
+    "share": "Share Your Experiences",
     "questionnaireForMigrants": "Questionnaire for Migrants",
     "questionnaireForMigrantExperts": "Questionnaire for Experts"
   },
@@ -57,5 +57,15 @@
   "navigation": {
     "home": "Home",
     "countries": "Countries"
+  },
+  "videos": {
+    "salaryAndLiving": "Salary and Living",
+    "gettingToQatar": "Getting to Qatar",
+    "kathmanduToQatar": "Kathmandu to Qatar",
+    "nepalToQatar": "Nepal to Qatar",
+    "dohaToKathmandu": "Doha to Kathmandu Flight",
+    "drivingInDoha": "Driving in Doha",
+    "firstTimeFlying": "First time flying",
+    "preFlightCheck": "Pre flight check"
   }
 }
