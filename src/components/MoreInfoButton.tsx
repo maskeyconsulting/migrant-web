@@ -5,12 +5,16 @@ import { useTranslations } from "next-intl";
 interface MoreInfoButtonProps {
   href: string;
 }
-export default function MoreInfoButton({ href }: MoreInfoButtonProps) {
+export default function MoreInfoButton({
+  href,
+  locale,
+}: MoreInfoButtonProps & { locale: string }) {
   const t = useTranslations("common");
 
   return (
     <Link
       href={href}
+      locale={locale}
       className="inline-flex items-center gap-2 mt-4 text-red-600 hover:text-red-700 font-medium"
     >
       {t("moreInformation")} <FaArrowRight className="w-4 h-4" />

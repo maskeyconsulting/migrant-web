@@ -80,9 +80,7 @@ export default async function Page({
     return (
       <div className="p-4 border border-red-500 rounded">
         <h2 className="text-red-600 font-bold">MDX Compilation Error</h2>
-        <p>
-          Failed to compile content for: {section}.{locale}.mdx
-        </p>
+        Failed to compile content for: {section}.{locale}.mdx
         <pre className="mt-4 p-2 bg-gray-100 overflow-auto">
           {error instanceof Error ? error.message : String(error)}
         </pre>

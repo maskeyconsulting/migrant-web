@@ -1,6 +1,5 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { compileMDX } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import SectionContainer from "@/components/SectionContainer";
@@ -8,6 +7,7 @@ import Link from "next/link";
 import ContentSection from "@/components/ContentSection";
 import IconHeading from "@/components/IconHeading";
 import MoreInfoButton from "@/components/MoreInfoButton";
+import remarkGfm from "remark-gfm";
 
 const components: MDXRemoteProps["components"] = {
   MoreInfoButton,
@@ -34,16 +34,16 @@ const components: MDXRemoteProps["components"] = {
   ),
 };
 
-async function getContent(locale: string) {
+async function getAccommodationContent(locale: string, section: string) {
   const contentPath = path.join(
     process.cwd(),
-    `src/content/accommodation.${locale}.mdx`
+    `src/content/accommodation/${section}.${locale}.mdx`
   );
   try {
     const source = await fs.readFile(contentPath, "utf8");
     return source;
   } catch (error) {
-    console.error("Failed to read MDX file:", error);
+    console.error(`Failed to read MDX file for section ${section}:`, error);
     return null;
   }
 }
@@ -51,20 +51,30 @@ async function getContent(locale: string) {
 export default async function Page({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string; section: string }>;
 }) {
-  const mdxSource = await getContent((await params).locale);
-
+  const mdxSource = await getAccommodationContent(
+    (
+      await params
+    ).locale,
+    (
+      await params
+    ).section
+  );
   if (!mdxSource) {
-    return <div>Error loading skills learning content.</div>;
+    return (
+      <div>
+        Error loading accommodation content for section:{" "}
+        {(await params).section}
+      </div>
+    );
   }
-
   const { content } = await compileMDX({
     source: mdxSource,
     components,
     options: {
       mdxOptions: {
-        remarkPlugins: [],
+        remarkPlugins: [remarkGfm],
         rehypePlugins: [],
       },
       parseFrontmatter: true,
@@ -72,12 +82,21 @@ export default async function Page({
   });
 
   return (
-    <article className="prose prose-lg max-w-none mx-auto px-4 py-8">
+    <article className="prose prose-lg dark:prose-invert max-w-none mx-auto px-4 py-8">
       {content}
     </article>
   );
 }
 
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "ne" }];
+  return [
+    { locale: "en", section: "overview" },
+    { locale: "en", section: "costs" },
+    { locale: "en", section: "housing" },
+    { locale: "en", section: "rights" },
+    { locale: "ne", section: "overview" },
+    { locale: "ne", section: "costs" },
+    { locale: "ne", section: "housing" },
+    { locale: "ne", section: "rights" },
+  ];
 }
