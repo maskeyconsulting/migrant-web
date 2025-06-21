@@ -31,7 +31,7 @@ export function VideoCarousel({ videos, onVideoSelect }: VideoCarouselProps) {
           <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/2">
             <div className="p-1">
               <Card
-                className="cursor-pointer hover:scale-105 transition-transform border-0 shadow-none"
+                className="cursor-pointer hover:scale-105 transition-transform border-0 shadow-none bg-black text-white"
                 onClick={() => onVideoSelect(video.id)}
               >
                 <CardContent className="flex flex-col items-center p-4">

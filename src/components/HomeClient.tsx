@@ -155,8 +155,9 @@ export default function HomeClient({ locale }: { locale: string }) {
         </div>
       </section>
 
-      <div className="w-full relative -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12">
-        <div className="bg-gradient-to-b from-[#F9A13A] to-[#F5821F] pt-16 pb-32">
+      {/* Featured Videos Section */}
+      <div className="relative -mx-[100vw] w-[200vw] left-1/2 right-1/2">
+        <div className="w-full bg-gradient-to-b from-[#F9A13A] to-[#F5821F] pt-16 pb-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
             <h2 className="text-[2.5rem] font-normal font-montserrat tracking-wide text-black uppercase text-center mb-12">
               {t("featuredVideos")}
@@ -167,7 +168,7 @@ export default function HomeClient({ locale }: { locale: string }) {
             />
           </div>
         </div>
-        <div className="h-16 bg-gradient-to-b from-[#F5821F] to-transparent" />
+        <div className="w-full h-16 bg-gradient-to-b from-[#F5821F] to-transparent" />
       </div>
 
       <VideoModal

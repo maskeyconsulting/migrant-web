@@ -29,7 +29,9 @@ const InfoCard: React.FC<InfoCardProps> = ({
         ) : (
           icon && <Image src={icon} alt={t(title)} width={64} height={64} />
         )}
-        <h3 className="text-lg sm:text-xl font-semibold -font-mono text-center">{t(title)}</h3>
+        <h3 className="text-lg sm:text-xl font-semibold -font-mono text-center">
+          {t(title)}
+        </h3>
       </div>
     </Link>
   );
