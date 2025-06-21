@@ -7,6 +7,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ["var(--font-montserrat)", "sans-serif"],
+      serif: ["var(--font-montserrat)", "sans-serif"],
+      mono: ["var(--font-montserrat)", "sans-serif"],
+    },
     extend: {
       typography: {
         DEFAULT: {
@@ -59,7 +64,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"], // Body text
+        sans: ["var(--font-montserrat)", "sans-serif"], // Body text
         heading: ["var(--font-montserrat)", "sans-serif"], // Headings
       },
     },

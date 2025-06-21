@@ -17,7 +17,8 @@
     "healthcareTitle": "स्वास्थ्य सेवा",
     "insurance": "बीमा",
     "facilities": "सुविधाहरू",
-    "emergency": "आपतकालीन"
+    "emergency": "आपतकालीन",
+    "financialPreparedness": "वित्तीय तयारी"
   },
 
   "legalRights": {
@@ -51,7 +52,9 @@
     "skillsLearning": "सीप सिकाइ",
     "share": "आफ्नो अनुभव व्यक्त गर्नुहोस्",
     "questionnaireForMigrants": "आप्रवासीहरूको लागि प्रश्नावली",
-    "questionnaireForMigrantExperts": "विशेषज्ञहरूको लागि प्रश्नावली"
+    "questionnaireForMigrantExperts": "विशेषज्ञहरूको लागि प्रश्नावली",
+    "financialPreparedness": "वित्तीय तयारी",
+    "financialPreparednessDesc": "पैसा व्यवस्थापन, बचत र रेमिट्यान्स सुरक्षित तरिकाले पठाउन सिक्नुहोस्"
   },
   "healthcareInsurance": {
     "pageTitle": "कतारमा स्वास्थ्य सेवा र बीमा",

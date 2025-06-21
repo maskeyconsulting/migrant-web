@@ -17,7 +17,8 @@
     "healthcareTitle": "Healthcare Access",
     "insurance": "Insurance",
     "facilities": "Facilities",
-    "emergency": "Emergency"
+    "emergency": "Emergency",
+    "financialPreparedness": "Financial Preparedness"
   },
   "homePage": {
     "title": "Working in Qatar – A Guide for Nepali Migrant Workers",
@@ -37,7 +38,9 @@
     "skillsLearning": "Skills Learning",
     "share": "Share Your Experiences",
     "questionnaireForMigrants": "Questionnaire for Migrants",
-    "questionnaireForMigrantExperts": "Questionnaire for Experts"
+    "questionnaireForMigrantExperts": "Questionnaire for Experts",
+    "financialPreparedness": "Financial Preparedness",
+    "financialPreparednessDesc": "Learn how to manage money, save, and send remittances safely"
   },
   "healthcareInsurance": {
     "pageTitle": "Healthcare and Insurance in Qatar",

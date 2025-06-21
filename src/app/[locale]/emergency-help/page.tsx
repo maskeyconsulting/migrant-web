@@ -4,12 +4,14 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { compileMDX } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import SectionContainer from "@/components/SectionContainer";
+import IconHeading from "@/components/IconHeading";
 import Link from "next/link";
 
 type Components = MDXRemoteProps["components"];
 
 const components: Components = {
   SectionContainer,
+  IconHeading,
   Link,
   h1: (props) => (
     <h1 {...props} className="font-heading text-4xl font-bold mb-4" />
@@ -39,13 +41,14 @@ async function getEmergencyHelpContent(locale: string) {
 }
 
 export function generateStaticParams() {
-  return [
-    { locale: "en" },
-    { locale: "ne" },
-  ];
+  return [{ locale: "en" }, { locale: "ne" }];
 }
 
-export default async function Page({ params }: {  params: Promise<{ locale: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const currentLocale = (await params).locale;
 
   const mdxSource = await getEmergencyHelpContent(currentLocale);

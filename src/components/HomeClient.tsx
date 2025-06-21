@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import { GoLaw } from "react-icons/go";
 import { MdOutlinePermPhoneMsg, MdHotel, MdSchool } from "react-icons/md";
 import { GrUserWorker } from "react-icons/gr";
-import { FaPlane } from "react-icons/fa";
+import { FaMoneyBill, FaPlane } from "react-icons/fa";
 import { TbHospitalCircleFilled } from "react-icons/tb";
 import Image from "next/image";
 
@@ -127,6 +127,12 @@ export default function HomeClient({ locale }: { locale: string }) {
           title="skillsLearning"
           href={`/${locale}/skills-learning`}
           IconComponent={MdSchool}
+        />
+        <InfoCard
+          icon="/icons/skillslearning.svg"
+          title="financialPreparedness"
+          href={`/${locale}/financialPreparedness`}
+          IconComponent={FaMoneyBill}
         />
       </div>
 
