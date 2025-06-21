@@ -18,6 +18,12 @@ export default function HomeClient({ locale }: { locale: string }) {
 
   const sampleVideos = [
     {
+      id: "JahAxvCaBIY",
+      title: "Labor City",
+      thumbnail: "https://img.youtube.com/vi/aEUYKGpcZtQ/maxresdefault.jpg",
+    },
+
+    {
       id: "FxLLO-dO0gk",
       title: v("salaryAndLiving"),
       thumbnail: "https://img.youtube.com/vi/FxLLO-dO0gk/maxresdefault.jpg",

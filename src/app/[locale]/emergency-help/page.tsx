@@ -6,6 +6,7 @@ import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import SectionContainer from "@/components/SectionContainer";
 import IconHeading from "@/components/IconHeading";
 import Link from "next/link";
+import remarkGfm from "remark-gfm";
 
 type Components = MDXRemoteProps["components"];
 
@@ -24,6 +25,20 @@ const components: Components = {
   ),
   p: (props) => <p {...props} className="font-sans" />,
   li: (props) => <li {...props} className="font-sans" />,
+  table: (props) => (
+    <div className="overflow-x-auto mb-6">
+      <table
+        {...props}
+        className="w-full border-collapse border border-gray-300 text-sm"
+      />
+    </div>
+  ),
+  tr: (props) => (
+    <tr {...props} className="border-b border-gray-300 hover:bg-gray-50" />
+  ),
+  td: (props) => (
+    <td {...props} className="border border-gray-300 px-4 py-3 align-top" />
+  ),
 };
 
 async function getEmergencyHelpContent(locale: string) {
@@ -62,7 +77,7 @@ export default async function Page({
     components,
     options: {
       mdxOptions: {
-        remarkPlugins: [],
+        remarkPlugins: [remarkGfm],
         rehypePlugins: [],
       },
       parseFrontmatter: true,
