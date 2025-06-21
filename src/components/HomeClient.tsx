@@ -157,7 +157,11 @@ export default function HomeClient({ locale }: { locale: string }) {
 
       {/* Featured Videos Section */}
       <div className="relative -mx-[100vw] w-[200vw] left-1/2 right-1/2">
-        <div className="w-full bg-gradient-to-b from-[#F9A13A] to-[#F5821F] pt-16 pb-32">
+        <div className="w-full bg-gradient-to-b from-[#F9A13A] to-[#F5821F] pt-16 pb-32 relative">
+          <div
+            className="absolute top-0 right-0 w-full h-16 bg-gradient-to-r from-transparent via-[#FAB76C] to-[#FAB76C] 
+        transform -skew-y-3 origin-top-right"
+          ></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
             <h2 className="text-[2.5rem] font-normal font-montserrat tracking-wide text-black uppercase text-center mb-12">
               {t("featuredVideos")}
