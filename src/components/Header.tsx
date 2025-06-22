@@ -82,6 +82,11 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <div className="flex flex-col items-center bg-blend-color-dodge">
+          <span className="text-xl text-ellipsis text-white mt-5 bg-red-500 font-stretch-50%">
+            <b>{t("headerDisclaimer")}</b>
+          </span>
+        </div>
       </div>
     </header>
   );
