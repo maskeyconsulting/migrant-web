@@ -162,14 +162,14 @@ export default function HomeClient({ locale }: { locale: string }) {
       </section>
 
       {/* Featured Videos Section */}
-      <div className="relative -mx-[100vw] w-[200vw] left-1/2 right-1/2">
-        <div className="w-full bg-gradient-to-b from-[#F9A13A] to-[#F5821F] pt-16 pb-32 relative">
+      <div className="relative w-full lg:-mx-[100vw] lg:w-[200vw] lg:left-1/2 lg:right-1/2">
+        <div className="w-full bg-gradient-to-b from-[#F9A13A] to-[#F5821F] pt-8 lg:pt-16 pb-16 lg:pb-32 relative">
           <div
             className="absolute top-0 right-0 w-full h-16 bg-gradient-to-r from-transparent via-[#FAB76C] to-[#FAB76C] 
         transform -skew-y-3 origin-top-right"
           ></div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-            <h2 className="text-[2.5rem] font-normal font-montserrat tracking-wide text-black uppercase text-center mb-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 z-10 relative">
+            <h2 className="text-[2.5rem] font-normal font-montserrat tracking-wide text-white uppercase text-center mb-12 z-10">
               {t("featuredVideos")}
             </h2>
             <VideoCarousel
