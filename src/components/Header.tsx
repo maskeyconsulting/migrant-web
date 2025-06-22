@@ -3,6 +3,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { FcGlobe } from "react-icons/fc";
 import { usePathname } from "next/navigation";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 const Header = () => {
   const t = useTranslations("common");
@@ -82,11 +83,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center bg-blend-color-dodge">
-          <span className="text-xl text-ellipsis text-white mt-5 bg-red-500 font-stretch-50%">
-            <b>{t("headerDisclaimer")}</b>
-          </span>
-        </div>
+        <TextGenerateEffect words={t("headerDisclaimer")} />
       </div>
     </header>
   );
